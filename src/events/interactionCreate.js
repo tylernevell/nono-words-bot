@@ -1,6 +1,6 @@
-const { Events, MessageFlags, Collection } = require('discord.js');
+import { Events, MessageFlags, Collection } from 'discord.js';
 
-module.exports = {
+export default {
   name: Events.InteractionCreate,
   async execute(interaction) {
     // Make sure to only handle slash commands in this function by making use of the BaseInteractionIsChatInputCommand method to exit the handler if another type is encountered.
@@ -20,6 +20,8 @@ module.exports = {
     const cooldownAmount = command.cooldown ?? defaultCooldownDuration * 1_000;
 
     if (timestamps.has(interaction.user.id)) {
+      const expirationTime =
+        timestamps.get(interaction.user.id) + cooldownAmount;
       const expiredTimestamp = Math.round(expirationTime / 1_000);
       return interaction.reply({
         content: `Please wait, you are on a cooldown for \`${command.data.name}\`. You can use it again <t:${expiredTimestamp}:R>.`,

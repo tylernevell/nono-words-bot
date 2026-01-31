@@ -1,7 +1,7 @@
-const js = require('@eslint/js');
+import js from '@eslint/js';
 
-module.exports = [
-  sjs.configs.recommended,
+export default [
+  js.configs.recommended,
   {
     languageOptions: {
       ecmaVersion: 'latest',

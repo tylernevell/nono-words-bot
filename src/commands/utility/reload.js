@@ -1,7 +1,7 @@
-const { SlashCommandBuilder } = require('discord.js');
+import { SlashCommandBuilder } from 'discord.js';
 
 // The reload command ideally should not be used by every user. You should deploy it as a guild command in a private guild.
-module.exports = {
+export default {
   data: new SlashCommandBuilder()
     .setName('reload')
     .setDescription('Reloads a command.')
@@ -23,10 +23,8 @@ module.exports = {
       );
     }
 
-    delete require.cache[require.resolve(`./${command.data.name}.js`)];
-
     try {
-      const newCommand = require(`./${command.data.name}.js`);
+      const newCommand = (await import(`./${command.data.name}.js`)).default;
       interaction.client.commands.set(newCommand.data.name, newCommand);
       await interaction.reply(
         `Command \`${newCommand.data.name}\` was reloaded!`,
