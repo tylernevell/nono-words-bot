@@ -1,4 +1,4 @@
-TODO
+# TODO
 
 - [ ] break down message reading into small problems
 - [x] first make bot listen to messages. confirm with console log that bot is responding
