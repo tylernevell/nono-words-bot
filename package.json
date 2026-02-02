@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
+  "engines": {
+    "node": "24"
+  },
   "scripts": {
     "start": "node --env-file=.env src/index.js",
     "lint": "eslint .",
