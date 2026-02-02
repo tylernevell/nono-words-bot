@@ -1,1 +1,13 @@
-To start nono bot, run the command `node --env-file=.env src/index.js`
+# nono bot
+
+Create an `.env` file in the root of the project and set the required values. Ask a maintainer for the required values.
+
+```bash
+cp sample.env .env
+```
+
+To start nono bot, run
+
+```bash
+npm start
+```
