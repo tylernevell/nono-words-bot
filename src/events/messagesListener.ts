@@ -1,12 +1,11 @@
-import { Events } from "discord.js";
+import { Events, type Message } from "discord.js";
 
 export default {
 	name: Events.MessageCreate,
-	async execute(message) {
-		// Ignore messages from bots
+	async execute(message: Message) {
 		if (message.author.bot) return;
+		if (message.channel.isDMBased()) return;
 
-		// Example: Respond to a specific keyword
 		if (message.content.toLowerCase().includes("hello")) {
 			await message.channel.send(`Hello, ${message.author.username}!`);
 		}
