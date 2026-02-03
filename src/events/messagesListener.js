@@ -1,4 +1,4 @@
-import { Events } from 'discord.js';
+import { Events } from "discord.js";
 
 export default {
 	name: Events.MessageCreate,
@@ -7,7 +7,7 @@ export default {
 		if (message.author.bot) return;
 
 		// Example: Respond to a specific keyword
-		if (message.content.toLowerCase().includes('hello')) {
+		if (message.content.toLowerCase().includes("hello")) {
 			await message.channel.send(`Hello, ${message.author.username}!`);
 		}
 	},
