@@ -1,6 +1,4 @@
-// Import the necessary discord.js classes
 import { Client, GatewayIntentBits, Collection } from 'discord.js';
-// import { token } from '../config.json' with { type: 'json' };
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
