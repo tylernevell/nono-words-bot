@@ -7,7 +7,8 @@
     "node": "24"
   },
   "scripts": {
-    "start": "node --env-file=.env src/index.js",
+    "start": "node --env-file=.env dist/index.js",
+    "build": "tsc --noEmit",
     "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky"
@@ -24,7 +25,9 @@
     "@eslint/js": "^9.39.2",
     "eslint": "^9.39.2",
     "husky": "^9.1.7",
-    "lint-staged": "^16.2.7"
+    "lint-staged": "^16.2.7",
+    "@types/node": "^25.2.0",
+    "typescript": "^5.9.3"
   },
   "lint-staged": {
     "*.js": "eslint"
