@@ -1,19 +1,19 @@
-import { SlashCommandBuilder } from 'discord.js';
+import { SlashCommandBuilder } from "discord.js";
 
 // The reload command ideally should not be used by every user. You should deploy it as a guild command in a private guild.
 export default {
 	data: new SlashCommandBuilder()
-		.setName('reload')
-		.setDescription('Reloads a command.')
+		.setName("reload")
+		.setDescription("Reloads a command.")
 		.addStringOption((option) =>
 			option
-				.setName('commnad')
-				.setDescription('The command to reload.')
+				.setName("commnad")
+				.setDescription("The command to reload.")
 				.setRequired(true),
 		),
 	async execute(interaction) {
 		const commandName = interaction.options
-			.getString('commnad', true)
+			.getString("commnad", true)
 			.toLowerCase();
 		const command = interaction.client.commands.get(commandName);
 
@@ -29,8 +29,7 @@ export default {
 			await interaction.reply(
 				`Command \`${newCommand.data.name}\` was reloaded!`,
 			);
-		}
-		catch (error) {
+		} catch (error) {
 			console.error(error);
 			await interaction.reply(
 				`There was an error while reloading a command \`${command.data.name}\`:\n\`${error.message}\``,
