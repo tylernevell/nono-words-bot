@@ -9,5 +9,5 @@ cp sample.env .env
 To start nono bot, run
 
 ```bash
-npm start
+npm run start
 ```
