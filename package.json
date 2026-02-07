@@ -2,13 +2,10 @@
 	"name": "nono-words-bot",
 	"version": "1.0.0",
 	"description": "",
-	"main": "dist/index.js",
-	"engines": {
-		"node": "24"
-	},
 	"scripts": {
 		"build": "tsc",
 		"start": "node --env-file=.env dist/index.js",
+		"deploy": "node --env-file=.env dist/util/deploy.js",
 		"lint": "biome lint --write",
 		"format": "biome format --write",
 		"test": "echo \"Error: no test specified\" && exit 1",
@@ -20,7 +17,10 @@
 	"license": "ISC",
 	"type": "module",
 	"dependencies": {
-		"discord.js": "^14.25.1",
+		"@anthropic-ai/claude-agent-sdk": "^0.2.34",
+		"@anthropic-ai/sdk": "^0.73.0",
+		"@discordjs/core": "^2.3.0",
+		"discord.js": "^14.24.0",
 		"dotenv": "^17.2.3"
 	},
 	"devDependencies": {
@@ -28,10 +28,10 @@
 		"@types/node": "^25.2.0",
 		"husky": "^9.1.7",
 		"lint-staged": "^16.2.7",
-		"typescript": "^5.9.3"
+		"typescript": "^5.9.3",
+		"zod": "^4.3.6"
 	},
 	"lint-staged": {
-		"*.js": "biome check --write",
 		"*.ts": "biome check --write"
 	},
 	"packageManager": "yarn@4.12.0"
