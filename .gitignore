@@ -17,3 +17,5 @@ docs/
 tmp
 .env
 config.json
+
+*.db*
